@@ -29,8 +29,6 @@ def play(board):
     status = 'continue'
     player = 'X'
 
-    print((status != 'continue'))
-
     while status == 'continue':
         square = int(input(f"{player}'s turn to choose a square (1-9):"))
         square -= 1
@@ -52,13 +50,10 @@ def play(board):
 
 
 def is_draw(board):
-    draw = False
-    for cell in board:
-        if cell != 'X' or cell != 'O':
-            draw = False
-        else:
-            draw = True
-    return draw
+    for square in range(9):
+        if board[square] != "X" and board[square] != "O":
+            return False
+    return True
 
 
 def has_winner(board):
